@@ -1,3 +1,4 @@
+import { ConfigPage } from './../pages/config/config';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -13,28 +14,53 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 @NgModule({
   declarations: [
-    MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
+	MyApp,
+	AboutPage,
+	ConfigPage,
+	ContactPage,
+	HomePage,
+	TabsPage
   ],
   imports: [
-    BrowserModule,
-    IonicModule.forRoot(MyApp)
+	BrowserModule,
+	IonicModule.forRoot(MyApp, {
+		//mode: 'ios', //md, ios
+		platforms: {
+			android: {
+				mode: 'ios'
+			},
+
+			ios: {
+
+			},
+
+			windows: {
+				tabsPlacement: 'bottom'
+			}
+		}
+
+		//tabsPlacement: 'top' 
+
+		// platforms: {
+		// 	ios: {
+		// 		tabsPlacement: 'top'
+		// 	}
+		// }
+	})
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
+	MyApp,
+	AboutPage,
+	ConfigPage,
+	ContactPage,
+	HomePage,
+	TabsPage
   ],
   providers: [
-    StatusBar,
-    SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+	StatusBar,
+	SplashScreen,
+	{provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}

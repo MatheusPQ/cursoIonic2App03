@@ -1,0 +1,5 @@
+Configura-se o modo em src/app/app.module.ts
+Mais nos docs do ionic: API/config
+Importar Config em config.ts
+Injetar configuração apenas em app.component, pois aí acontece antes do app iniciar.
+    Senão, precisa dar um "refresh"
